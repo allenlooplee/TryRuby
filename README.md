@@ -1,14 +1,23 @@
-Try Ruby
+Introduction
 =======
 
-![try ruby](https://cloud.githubusercontent.com/assets/132692/4899901/f06c57f4-6420-11e4-80e1-dc210f907f53.jpg)
+![Try Ruby right inside your Windows Phone](https://cloud.githubusercontent.com/assets/132692/4899901/f06c57f4-6420-11e4-80e1-dc210f907f53.jpg)
 
 Have you ever thought of evaluating Ruby expressions right inside your Windows Phone just like texting inside the Messaging Hub? You've come to the right place. 
 
+Features
+=======
+
 Though this app is still in its early alpha, here's a list of what I'm working on:
+
 1. Basic REPL for single-line expressions [done]
 2. Messaging Hub style texting [done]
 3. Error handling for input code [done]
 4. Inspect results like irb
 5. Multi-line code scenarios
 6. Help and learning materials
+
+Build and run
+=======
+
+To run TryRuby on Windows Phone, you'll need to build it with [Windows Phone SDK 8.0](http://dev.windows.com/en-us/develop/download-phone-sdk) or higher. The source code is licensed under MIT License
