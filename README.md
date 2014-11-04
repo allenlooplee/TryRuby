@@ -16,8 +16,9 @@ Though this app is still in its early alpha, here's a list of what I'm working o
 4. Inspect results like irb
 5. Multi-line code scenarios
 6. Help and learning materials
+7. Save user-defined methods
 
 Build and run
 =======
 
-To run TryRuby on Windows Phone, you'll need to build it with [Windows Phone SDK 8.0](http://dev.windows.com/en-us/develop/download-phone-sdk) or higher. The source code is licensed under MIT License.
+To run TryRuby on Windows Phone, you'll need to build it with [Windows Phone SDK 8.0](http://dev.windows.com/en-us/develop/download-phone-sdk) or higher. This project is brought to reality with the help of [DLR 1.0](https://dlr.codeplex.com) and [IronRuby 1.3.1](http://ironruby.net) which is compatible with Ruby 1.9.2. The source code is licensed under MIT License.
