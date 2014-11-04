@@ -1,6 +1,7 @@
 ﻿using Coding4Fun.Toolkit.Controls;
 using IronRuby;
 using Microsoft.Expression.Interactivity.Core;
+using Microsoft.Scripting;
 using Microsoft.Scripting.Hosting;
 using System;
 using System.Collections.Generic;
@@ -28,8 +29,8 @@ namespace TryRuby.ViewModels
                     // Road map:
                     // 1. Execute basic code with context
                     // 2. Style it as message conversation
-                    // 3. Inspect complex object like native ruby
-                    // 4. Deal with exception
+                    // 3. Deal with exception
+                    // 4. Inspect complex object like native ruby
 
                     if (!String.IsNullOrWhiteSpace(InputBox))
                     {
@@ -41,14 +42,43 @@ namespace TryRuby.ViewModels
                                 Opacity = .6,
                                 HorizontalAlignment = HorizontalAlignment.Right
                             });
-                        
-                        var result = _engine.Execute(InputBox, _scope);
-                        if (result != null)
+
+                        try
+                        {
+                            if (IsValidExpression(InputBox))
+                            {
+                                var result = _engine.Execute(InputBox, _scope);
+
+                                if (result != null)
+                                {
+                                    OutputPanel.Add(
+                                        new ChatBubbleViewModel
+                                        {
+                                            Text = result.ToString(),
+                                            Direction = ChatBubbleDirection.UpperLeft,
+                                            Opacity = 1,
+                                            HorizontalAlignment = HorizontalAlignment.Left
+                                        });
+                                }
+                            }
+                            else
+                            {
+                                OutputPanel.Add(
+                                    new ChatBubbleViewModel
+                                    {
+                                        Text = "invalid expression",
+                                        Direction = ChatBubbleDirection.UpperLeft,
+                                        Opacity = 1,
+                                        HorizontalAlignment = HorizontalAlignment.Left
+                                    });
+                            }
+                        }
+                        catch (Exception ex)
                         {
                             OutputPanel.Add(
                                 new ChatBubbleViewModel
                                 {
-                                    Text = result.ToString(),
+                                    Text = ex.Message,
                                     Direction = ChatBubbleDirection.UpperLeft,
                                     Opacity = 1,
                                     HorizontalAlignment = HorizontalAlignment.Left
@@ -80,5 +110,11 @@ namespace TryRuby.ViewModels
 
         private ScriptEngine _engine;
         private ScriptScope _scope;
+
+        private bool IsValidExpression(string code)
+        {
+            return _engine.CreateScriptSourceFromString(code, Microsoft.Scripting.SourceCodeKind.Expression)
+                .GetCodeProperties() == Microsoft.Scripting.ScriptCodeParseResult.Complete;
+        }
     }
 }
