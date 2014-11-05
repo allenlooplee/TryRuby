@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using TryRuby.Utils;
 
 namespace TryRuby.ViewModels
 {
@@ -41,7 +42,7 @@ namespace TryRuby.ViewModels
 
                                 if (result != null)
                                 {
-                                    WriteIncome(result.ToString());
+                                    WriteIncome(_engine.Operations.Format(result));
                                 }
                             }
                             else
