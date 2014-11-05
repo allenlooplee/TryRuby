@@ -22,3 +22,11 @@ Build and run
 =======
 
 To run TryRuby on Windows Phone, you'll need to build it with [Windows Phone SDK 8.0](http://dev.windows.com/en-us/develop/download-phone-sdk) or higher. This project is brought to reality with the help of [DLR 1.0](https://github.com/IronLanguages/dlr) and [IronRuby 1.3.1](http://ironruby.net) which is compatible with Ruby 1.9.2. The source code is licensed under MIT License.
+
+References
+=======
+
+- [Dynamic Language Runtime docs and specs](https://dlr.codeplex.com/wikipage?title=Docs%20and%20specs&referringTitle=Documentation)
+- [Pro DLR in .NET 4](http://www.amazon.com/Pro-DLR-NET-Experts-Voice/dp/1430230665)
+- [IronRuby Unleashed](http://www.amazon.com/IronRuby-Unleashed-Shay-Friedman/dp/0672330784)
+- [Ruby in the browser documentation](http://ironruby.net/browser/docs.html)
