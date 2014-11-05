@@ -11,7 +11,7 @@ Features
 Though this app is still in its early alpha, here's a list of what I'm working on:
 
 1. Basic [REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for single-line expressions [done]
-2. [Messaging Hub](http://www.windowsphone.com/en-US/how-to/wp7/people/messaging) style texting [done]
+2. [Messaging Hub](http://www.windowsphone.com/en-us/how-to/wp8/calling-and-messaging/send-a-text) style texting [done]
 3. Error handling for input code [done]
 4. Inspect results like irb
 5. Multi-line code scenarios
