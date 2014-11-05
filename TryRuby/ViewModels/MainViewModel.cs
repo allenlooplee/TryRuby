@@ -26,63 +26,32 @@ namespace TryRuby.ViewModels
             EnterCommand = new ActionCommand(
                 () => 
                 {
-                    // Road map:
-                    // 1. Execute basic code with context
-                    // 2. Style it as message conversation
-                    // 3. Deal with exception
-                    // 4. Inspect complex object like native ruby
-
                     if (!String.IsNullOrWhiteSpace(InputBox))
                     {
-                        OutputPanel.Add(
-                            new ChatBubbleViewModel
-                            {
-                                Text = InputBox,
-                                Direction = ChatBubbleDirection.LowerRight,
-                                Opacity = .6,
-                                HorizontalAlignment = HorizontalAlignment.Right
-                            });
+                        WriteOutgo(InputBox);
 
                         try
                         {
-                            if (IsValidExpression(InputBox))
+                            var source = _engine.CreateScriptSourceFromString(InputBox, SourceCodeKind.Expression);
+                            var props = source.GetCodeProperties();
+
+                            if (props == ScriptCodeParseResult.Complete)
                             {
-                                var result = _engine.Execute(InputBox, _scope);
+                                var result = source.Execute(_scope);
 
                                 if (result != null)
                                 {
-                                    OutputPanel.Add(
-                                        new ChatBubbleViewModel
-                                        {
-                                            Text = result.ToString(),
-                                            Direction = ChatBubbleDirection.UpperLeft,
-                                            Opacity = 1,
-                                            HorizontalAlignment = HorizontalAlignment.Left
-                                        });
+                                    WriteIncome(result.ToString());
                                 }
                             }
                             else
                             {
-                                OutputPanel.Add(
-                                    new ChatBubbleViewModel
-                                    {
-                                        Text = "invalid expression",
-                                        Direction = ChatBubbleDirection.UpperLeft,
-                                        Opacity = 1,
-                                        HorizontalAlignment = HorizontalAlignment.Left
-                                    });
+                                WriteIncome("invalid expression");
                             }
                         }
                         catch (Exception ex)
                         {
-                            OutputPanel.Add(
-                                new ChatBubbleViewModel
-                                {
-                                    Text = ex.Message,
-                                    Direction = ChatBubbleDirection.UpperLeft,
-                                    Opacity = 1,
-                                    HorizontalAlignment = HorizontalAlignment.Left
-                                });
+                            WriteIncome(ex.Message);
                         }
 
                         InputBox = null;
@@ -111,10 +80,28 @@ namespace TryRuby.ViewModels
         private ScriptEngine _engine;
         private ScriptScope _scope;
 
-        private bool IsValidExpression(string code)
+        private void WriteIncome(string text)
         {
-            return _engine.CreateScriptSourceFromString(code, Microsoft.Scripting.SourceCodeKind.Expression)
-                .GetCodeProperties() == Microsoft.Scripting.ScriptCodeParseResult.Complete;
+            OutputPanel.Add(
+                new ChatBubbleViewModel
+                {
+                    Text = text,
+                    Direction = ChatBubbleDirection.UpperLeft,
+                    Opacity = 1,
+                    HorizontalAlignment = HorizontalAlignment.Left
+                });
+        }
+
+        private void WriteOutgo(string text)
+        {
+            OutputPanel.Add(
+                new ChatBubbleViewModel
+                {
+                    Text = text,
+                    Direction = ChatBubbleDirection.LowerRight,
+                    Opacity = .6,
+                    HorizontalAlignment = HorizontalAlignment.Right
+                });
         }
     }
 }
