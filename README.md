@@ -14,9 +14,9 @@ Though this app is still in its early alpha, here's a list of what I'm working o
 2. [Messaging Hub](http://www.windowsphone.com/en-us/how-to/wp8/calling-and-messaging/send-a-text) style texting [done]
 3. Error handling for input code [done]
 4. Format result object like irb [done]
-5. Multi-line code scenarios
-6. Help and learning materials
-7. Save user-defined methods
+5. Help and learning materials
+6. Multi-line code scenarios
+7. Save user-defined code
 
 Build and run
 =======
