@@ -10,7 +10,14 @@ namespace TryRuby.ViewModels
 {
     public class ChatBubbleViewModel
     {
+        public ChatBubbleViewModel()
+        {
+            Timestamp = DateTime.Now;
+        }
+
         public string Text { get; set; }
+
+        public DateTime Timestamp { get; private set; }
 
         public ChatBubbleDirection Direction { get; set; }
 

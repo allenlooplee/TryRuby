@@ -1,8 +1,5 @@
 ﻿using Coding4Fun.Toolkit.Controls;
-using IronRuby;
 using Microsoft.Expression.Interactivity.Core;
-using Microsoft.Scripting;
-using Microsoft.Scripting.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,9 +16,6 @@ namespace TryRuby.ViewModels
     {
         public MainViewModel()
         {
-            _engine = Ruby.CreateEngine();
-            _scope = _engine.CreateScope();
-
             OutputPanel = new ObservableCollection<ChatBubbleViewModel>();
 
             EnterCommand = new ActionCommand(
@@ -31,28 +25,10 @@ namespace TryRuby.ViewModels
                     {
                         WriteOutgo(InputBox);
 
-                        try
+                        var result = Repl.Instance.Evaluate(InputBox);
+                        if (!String.IsNullOrEmpty(result))
                         {
-                            var source = _engine.CreateScriptSourceFromString(InputBox, SourceCodeKind.Expression);
-                            var props = source.GetCodeProperties();
-
-                            if (props == ScriptCodeParseResult.Complete)
-                            {
-                                var result = source.Execute(_scope);
-
-                                if (result != null)
-                                {
-                                    WriteIncome(_engine.Operations.Format(result));
-                                }
-                            }
-                            else
-                            {
-                                WriteIncome("invalid expression");
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            WriteIncome(ex.Message);
+                            WriteIncome(result);
                         }
 
                         InputBox = null;
@@ -77,9 +53,6 @@ namespace TryRuby.ViewModels
         }
 
         public ICommand EnterCommand { get; private set; }
-
-        private ScriptEngine _engine;
-        private ScriptScope _scope;
 
         private void WriteIncome(string text)
         {
