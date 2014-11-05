@@ -15,8 +15,9 @@ Though this app is still in its early alpha, here's a list of what I'm working o
 3. Error handling for input code [done]
 4. Format result object like irb [done]
 5. Help and learning materials
-6. Multi-line code scenarios
-7. Save user-defined code
+6. Reevaluate/copy/paste previous expressions
+7. Multi-line code scenarios
+8. Save user-defined code
 
 Build and run
 =======
