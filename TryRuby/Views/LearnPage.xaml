@@ -1,0 +1,85 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+    xmlns:local="clr-namespace:TryRuby"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    x:Class="TryRuby.LearnPage"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True" toolkit:TiltEffect.IsTiltEnabled="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<!--TitlePanel contains the name of the application and page title-->
+		<StackPanel Grid.Row="0" Margin="12,17,0,28">
+			<TextBlock Text="TRY RUBY" Style="{StaticResource PhoneTextNormalStyle}"/>
+			<TextBlock Text="learn" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+		</StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+			<ListBox Margin="{StaticResource PhoneHorizontalMargin}">
+				<StackPanel Margin="0,0,0,12">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Tap">
+							<local:LaunchBrowserAction Uri="https://www.ruby-lang.org/en/documentation/quickstart/"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+					<TextBlock TextWrapping="Wrap" Text="Ruby in Twenty Minutes" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+					<TextBlock TextWrapping="Wrap" Text="A nice tutorial covering the basics of Ruby. From start to finish it shouldn’t take you more than twenty minutes." FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneSubtleBrush}"/>
+				</StackPanel>
+				<StackPanel Margin="0,0,0,12">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Tap">
+							<local:LaunchBrowserAction Uri="http://mislav.uniqpath.com/poignant-guide/"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+					<TextBlock Text="Why’s (Poignant) Guide to Ruby" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+					<TextBlock TextWrapping="Wrap" Text="An unconventional but interesting book that will teach you Ruby through stories, wit, and comics. Originally created by why the lucky stiff, this guide remains a classic for Ruby learners." FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneSubtleBrush}"/>
+				</StackPanel>
+				<StackPanel Margin="0,0,0,12">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Tap">
+							<local:LaunchBrowserAction Uri="http://rubyweekly.com/"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+					<TextBlock Text="Ruby Weekly" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+					<TextBlock TextWrapping="Wrap" Text="A free, once–weekly e-mail round-up of Ruby news and articles." FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneSubtleBrush}"/>
+				</StackPanel>
+				<StackPanel Margin="0,0,0,12">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Tap">
+							<local:LaunchBrowserAction Uri="http://en.wikibooks.org/wiki/Ruby_Programming"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+					<TextBlock Text="The Ruby Programming Wikibook" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+					<TextBlock TextWrapping="Wrap" Text="A free online manual with beginner and intermediate content plus a thorough language reference." FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneSubtleBrush}"/>
+				</StackPanel>
+				<StackPanel Margin="0,0,0,12">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Tap">
+							<local:LaunchBrowserAction Uri="http://www.ruby-doc.org/core-2.1.4/"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+					<TextBlock Text="Ruby Core Reference" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+					<TextBlock TextWrapping="Wrap" Text="Pulled straight from the source code using RDoc, this reference work documents all of the core classes and modules (like String, Array, Symbol, etc…)." FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneSubtleBrush}"/>
+				</StackPanel>
+			</ListBox>
+
+		</Grid>
+	</Grid>
+
+</phone:PhoneApplicationPage>

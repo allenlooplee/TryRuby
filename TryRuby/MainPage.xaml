@@ -9,21 +9,22 @@
     xmlns:ei="clr-namespace:Microsoft.Expression.Interactivity.Input;assembly=Microsoft.Expression.Interactions"
     xmlns:c4fb="clr-namespace:Coding4Fun.Toolkit.Controls.Binding;assembly=Coding4Fun.Toolkit.Controls"
     xmlns:c4fc="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
+    xmlns:AppBarUtils="clr-namespace:AppBarUtils;assembly=AppBarUtils"
     x:Class="TryRuby.MainPage"
-    mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
+    mc:Ignorable="d"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
-	<phone:PhoneApplicationPage.Resources>
-		<DataTemplate x:Key="ReplItemTemplate">
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="ReplItemTemplate">
             <Grid Width="456">
                 <c4fc:ChatBubble
-                    ChatBubbleDirection="{Binding Direction}"
-                    Opacity="{Binding Opacity}"
-                    HorizontalAlignment="{Binding HorizontalAlignment}"
-                    Margin="12,0,12,0">
+					ChatBubbleDirection="{Binding Direction}"
+					Opacity="{Binding Opacity}"
+					HorizontalAlignment="{Binding HorizontalAlignment}"
+					Margin="12,0,12,0">
                     <Grid Width="350">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -33,10 +34,11 @@
                         <TextBlock Text="{Binding Timestamp, StringFormat=t}" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                     </Grid>
                 </c4fc:ChatBubble>
-			</Grid>
-		</DataTemplate>
-	</phone:PhoneApplicationPage.Resources>
-	<phone:PhoneApplicationPage.ApplicationBar>
+            </Grid>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
 		<shell:ApplicationBar Mode="Minimized">
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="help"/>
@@ -44,6 +46,10 @@
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
+	<i:Interaction.Behaviors>
+		<AppBarUtils:AppBarItemNavigation Type="MenuItem" Id="help" TargetPage="/Views/HelpPage.xaml"/>
+	</i:Interaction.Behaviors>
+    
     <!--LayoutRoot is the root grid where all page content is placed-->
 	<Grid x:Name="LayoutRoot" Background="Transparent">
 		<Grid.RowDefinitions>
@@ -74,27 +80,27 @@
             if the System Tray is hidden.
 
             Before shipping remove this XAML and the image itself.-->
-        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />--><!--TitlePanel contains the name of the application and page title-->
+		<!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />--><!--TitlePanel contains the name of the application and page title-->
 		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
 			<TextBlock x:Name="ApplicationTitle" Text="TRY RUBY" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
 			<TextBlock x:Name="PageTitle" Text="conversation" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
 		</StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <phone:LongListSelector ItemsSource="{Binding OutputPanel}" ItemTemplate="{StaticResource ReplItemTemplate}"/>
-            <c4fc:ChatBubbleTextBox Text="{Binding InputBox, Mode=TwoWay}" ChatBubbleDirection="LowerRight" c4fb:TextBinding.UpdateSourceOnChange="True" HorizontalAlignment="Right" Height="72" Width="350" Margin="12,0,12,0" Grid.Row="1" FontSize="{StaticResource PhoneFontSizeNormal}">
-                <i:Interaction.Triggers>
-                    <ei:KeyTrigger FiredOn="KeyUp" Key="Enter">
-                        <i:InvokeCommandAction Command="{Binding EnterCommand}"/>
-                    </ei:KeyTrigger>
-                </i:Interaction.Triggers>
-            </c4fc:ChatBubbleTextBox>
-        </Grid>
-    </Grid>
+		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<phone:LongListSelector ItemsSource="{Binding OutputPanel}" ItemTemplate="{StaticResource ReplItemTemplate}"/>
+			<c4fc:ChatBubbleTextBox Text="{Binding InputBox, Mode=TwoWay}" ChatBubbleDirection="LowerRight" c4fb:TextBinding.UpdateSourceOnChange="True" HorizontalAlignment="Right" Height="72" Width="350" Margin="12,0,12,0" Grid.Row="1" FontSize="{StaticResource PhoneFontSizeNormal}">
+				<i:Interaction.Triggers>
+					<ei:KeyTrigger FiredOn="KeyUp" Key="Enter">
+						<i:InvokeCommandAction Command="{Binding EnterCommand}"/>
+					</ei:KeyTrigger>
+				</i:Interaction.Triggers>
+			</c4fc:ChatBubbleTextBox>
+		</Grid>
+	</Grid>
 
 </phone:PhoneApplicationPage>
