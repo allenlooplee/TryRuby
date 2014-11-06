@@ -14,7 +14,7 @@ This app is still in BETA stage, and only for study and experiment at this point
 2. [Messaging Hub](http://www.windowsphone.com/en-us/how-to/wp8/calling-and-messaging/send-a-text) style texting [done]
 3. Error handling for input code [done]
 4. Format result object like irb [done]
-5. Help and learning materials
+5. Help and learning materials [done]
 6. Reevaluate/copy/paste previous expressions
 7. Multi-line code scenarios
 8. Save user-defined code
