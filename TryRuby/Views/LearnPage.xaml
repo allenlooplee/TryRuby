@@ -38,7 +38,7 @@
 							<local:LaunchBrowserAction Uri="https://www.ruby-lang.org/en/documentation/quickstart/"/>
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
-					<TextBlock TextWrapping="Wrap" Text="Ruby in Twenty Minutes" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+                    <TextBlock TextWrapping="Wrap" Text="Ruby in Twenty Minutes" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneForegroundBrush}"/>
 					<TextBlock TextWrapping="Wrap" Text="A nice tutorial covering the basics of Ruby. From start to finish it shouldn’t take you more than twenty minutes." FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneSubtleBrush}"/>
 				</StackPanel>
 				<StackPanel Margin="0,0,0,12">
@@ -47,7 +47,7 @@
 							<local:LaunchBrowserAction Uri="http://mislav.uniqpath.com/poignant-guide/"/>
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
-					<TextBlock Text="Why’s (Poignant) Guide to Ruby" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+                    <TextBlock Text="Why's (Poignant) Guide to Ruby" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneForegroundBrush}"/>
 					<TextBlock TextWrapping="Wrap" Text="An unconventional but interesting book that will teach you Ruby through stories, wit, and comics. Originally created by why the lucky stiff, this guide remains a classic for Ruby learners." FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneSubtleBrush}"/>
 				</StackPanel>
 				<StackPanel Margin="0,0,0,12">
@@ -56,7 +56,7 @@
 							<local:LaunchBrowserAction Uri="http://rubyweekly.com/"/>
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
-					<TextBlock Text="Ruby Weekly" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+                    <TextBlock Text="Ruby Weekly" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneForegroundBrush}"/>
 					<TextBlock TextWrapping="Wrap" Text="A free, once–weekly e-mail round-up of Ruby news and articles." FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneSubtleBrush}"/>
 				</StackPanel>
 				<StackPanel Margin="0,0,0,12">
@@ -65,7 +65,7 @@
 							<local:LaunchBrowserAction Uri="http://en.wikibooks.org/wiki/Ruby_Programming"/>
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
-					<TextBlock Text="The Ruby Programming Wikibook" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+                    <TextBlock Text="The Ruby Programming Wikibook" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneForegroundBrush}"/>
 					<TextBlock TextWrapping="Wrap" Text="A free online manual with beginner and intermediate content plus a thorough language reference." FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneSubtleBrush}"/>
 				</StackPanel>
 				<StackPanel Margin="0,0,0,12">
@@ -74,7 +74,7 @@
 							<local:LaunchBrowserAction Uri="http://www.ruby-doc.org/core-2.1.4/"/>
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
-					<TextBlock Text="Ruby Core Reference" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+                    <TextBlock Text="Ruby Core Reference" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneForegroundBrush}"/>
 					<TextBlock TextWrapping="Wrap" Text="Pulled straight from the source code using RDoc, this reference work documents all of the core classes and modules (like String, Array, Symbol, etc…)." FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneSubtleBrush}"/>
 				</StackPanel>
 			</ListBox>
