@@ -8,7 +8,7 @@ As a Ruby hobbyist, you might have heard of tryruby.org originally created by [w
 Features
 =======
 
-Though this app is still in BETA stage, here's a list of what I'm working on:
+This app is still in BETA stage, and only for study and experiment at this point of time. Here's a list of what I'm working on for 1.0:
 
 1. Basic [REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for single-line expressions [done]
 2. [Messaging Hub](http://www.windowsphone.com/en-us/how-to/wp8/calling-and-messaging/send-a-text) style texting [done]
