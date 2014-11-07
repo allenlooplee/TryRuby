@@ -7,9 +7,9 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("TryRuby")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("TryRuby")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("TryRuby")]
 [assembly: AssemblyProduct("TryRuby")]
 [assembly: AssemblyCopyright("Copyright ©  2014 Allen Lee")]
 [assembly: AssemblyTrademark("")]

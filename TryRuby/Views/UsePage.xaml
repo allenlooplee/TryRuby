@@ -28,8 +28,8 @@
 
         <!--ContentPanel - place additional content here-->
         <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock TextWrapping="Wrap" Text="Type any valid Ruby expression within the text box and hit enter. You'll see the evaluated result immediately." VerticalAlignment="Top" FontSize="{StaticResource PhoneFontSizeNormal}" Margin="12,0,12,12"/>
-            <TextBlock TextWrapping="Wrap" Text="Note: only single-line expressions are supported in this version." VerticalAlignment="Top" Margin="{StaticResource PhoneHorizontalMargin}" FontSize="{StaticResource PhoneFontSizeNormal}"/>
+            <TextBlock TextWrapping="Wrap" Text="Type any valid Ruby expression within the text box and hit enter. You'll see the evaluated result immediately. Only single-line expressions are supported in this version." VerticalAlignment="Top" FontSize="{StaticResource PhoneFontSizeNormal}" Margin="12,0,12,12"/>
+            <TextBlock TextWrapping="Wrap" Text="Note: This app is still in BETA stage, and only for study and experiment at this point of time." VerticalAlignment="Top" Margin="{StaticResource PhoneHorizontalMargin}" FontSize="{StaticResource PhoneFontSizeNormal}"/>
         </StackPanel>
     </Grid>
 

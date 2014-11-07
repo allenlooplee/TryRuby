@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{fa82a0e1-63f3-47e4-b569-e2d2d474d08a}" Title="Try Ruby" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Allen Lee" Description="A Ruby REPL based on IronRuby 1.3.1 with Messaging Hub style for Windows Phone 8." Publisher="allenlooplee" PublisherID="{51fd54f7-10df-4da2-b480-9a6a03ae255e}">
+  <App xmlns="" ProductID="{fa82a0e1-63f3-47e4-b569-e2d2d474d08a}" Title="Try Ruby BETA" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Allen Lee" Description="A Ruby REPL based on IronRuby 1.3.1 with Messaging Hub style for Windows Phone 8." Publisher="allenlooplee" PublisherID="{51fd54f7-10df-4da2-b480-9a6a03ae255e}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
@@ -19,7 +19,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>Try Ruby</Title>
+          <Title>Try Ruby BETA</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>
