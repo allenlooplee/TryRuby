@@ -8,16 +8,20 @@ As a Ruby hobbyist, you might have heard of tryruby.org originally created by [w
 Features
 =======
 
-This app is still in BETA stage, and only for study and experiment at this point of time. Here's a list of what I'm working on for 1.0:
+This app is still in BETA stage, and only for study and experiment at this point of time. Here's a list of what I plan to implement:
+
+1. Copy previous expressions/results [done]
+2. Multi-line code scenarios
+3. Save user-defined code
+4. Learning mode
+
+**1.0 BETA (2014-11-7):**
 
 1. Basic [REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for single-line expressions [done]
 2. [Messaging Hub](http://www.windowsphone.com/en-us/how-to/wp8/calling-and-messaging/send-a-text) style texting [done]
 3. Error handling for input code [done]
 4. Format result object like irb [done]
 5. Help and learning materials [done]
-6. Reevaluate/copy/paste previous expressions
-7. Multi-line code scenarios
-8. Save user-defined code
 
 Build and run
 =======
