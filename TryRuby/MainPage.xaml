@@ -10,33 +10,54 @@
     xmlns:c4fb="clr-namespace:Coding4Fun.Toolkit.Controls.Binding;assembly=Coding4Fun.Toolkit.Controls"
     xmlns:c4fc="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
     xmlns:AppBarUtils="clr-namespace:AppBarUtils;assembly=AppBarUtils"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:utils="clr-namespace:TryRuby.Utils"
+    xmlns:local="clr-namespace:TryRuby"
     x:Class="TryRuby.MainPage"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
-    FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
     mc:Ignorable="d"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.Resources>
         <DataTemplate x:Key="ReplItemTemplate">
-            <Grid Width="456">
-                <c4fc:ChatBubble
-					ChatBubbleDirection="{Binding Direction}"
-					Opacity="{Binding Opacity}"
-					HorizontalAlignment="{Binding HorizontalAlignment}"
-					Margin="12,0,12,0">
+        	<Grid Width="456">
+        		<c4fc:ChatBubble
+        			ChatBubbleDirection="{Binding Direction}"
+        			Opacity="{Binding Opacity}"
+        			HorizontalAlignment="{Binding HorizontalAlignment}"
+        			Margin="12,0,12,0">
+                    <toolkit:ContextMenuService.ContextMenu>
+                        <toolkit:ContextMenu>
+                            <toolkit:MenuItem Header="copy">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <local:CopyToClipboardAction Text="{Binding Text}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </toolkit:MenuItem>
+                        </toolkit:ContextMenu>
+                    </toolkit:ContextMenuService.ContextMenu>
                     <Grid Width="350">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding Text}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneForegroundBrush}"/>
-                        <TextBlock Text="{Binding Timestamp, StringFormat=t}" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
-                    </Grid>
-                </c4fc:ChatBubble>
-            </Grid>
+        				<Grid.RowDefinitions>
+        					<RowDefinition/>
+        					<RowDefinition Height="Auto"/>
+        				</Grid.RowDefinitions>
+        				<TextBlock Text="{Binding Text}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneForegroundBrush}"/>
+        				<TextBlock Text="{Binding Timestamp, StringFormat=t}" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
+        			</Grid>
+        		</c4fc:ChatBubble>
+        	</Grid>
         </DataTemplate>
     </phone:PhoneApplicationPage.Resources>
+
+	<phone:PhoneApplicationPage.FontFamily>
+		<StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+	</phone:PhoneApplicationPage.FontFamily>
+	<phone:PhoneApplicationPage.FontSize>
+		<StaticResource ResourceKey="PhoneFontSizeNormal"/>
+	</phone:PhoneApplicationPage.FontSize>
+	<phone:PhoneApplicationPage.Foreground>
+		<StaticResource ResourceKey="PhoneForegroundBrush"/>
+	</phone:PhoneApplicationPage.Foreground>
 
     <phone:PhoneApplicationPage.ApplicationBar>
 		<shell:ApplicationBar Mode="Minimized">
@@ -93,7 +114,7 @@
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
 			<ListBox ItemsSource="{Binding OutputPanel}" ItemTemplate="{StaticResource ReplItemTemplate}"/>
-			<c4fc:ChatBubbleTextBox Text="{Binding InputBox, Mode=TwoWay}" Hint="type a Ruby expression" ChatBubbleDirection="LowerRight" c4fb:TextBinding.UpdateSourceOnChange="True" HorizontalAlignment="Right" Height="72" Width="350" Margin="12,0,12,0" Grid.Row="1" FontSize="{StaticResource PhoneFontSizeNormal}">
+			<c4fc:ChatBubbleTextBox Text="{Binding InputBox, Mode=TwoWay}" Hint="type a Ruby expression" ChatBubbleDirection="LowerRight" c4fb:TextBinding.UpdateSourceOnChange="True" HorizontalAlignment="Right" Height="72" Width="350" Margin="12,0,12,0" Grid.Row="1" FontSize="{StaticResource PhoneFontSizeMedium}">
 				<i:Interaction.Triggers>
 					<ei:KeyTrigger FiredOn="KeyUp" Key="Enter">
 						<i:InvokeCommandAction Command="{Binding EnterCommand}"/>

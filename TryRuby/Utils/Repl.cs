@@ -40,7 +40,7 @@ namespace TryRuby.Utils
                     }
                     else
                     {
-                        return String.Empty;
+                        return "Hey, I've got nothing after evaluating your expression.";
                     }
                 }
                 catch (Exception ex)
@@ -50,7 +50,7 @@ namespace TryRuby.Utils
             }
             else
             {
-                return "syntax error";
+                return "Oops! Syntax error! Can you double check your code?";
             }
         }
 

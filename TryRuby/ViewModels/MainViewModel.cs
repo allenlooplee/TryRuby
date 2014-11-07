@@ -18,6 +18,8 @@ namespace TryRuby.ViewModels
         {
             OutputPanel = new ObservableCollection<ChatBubbleViewModel>();
 
+            WriteIncome("Hi, I'm Ruby. What expressions do you want me to evaluate?");
+
             EnterCommand = new ActionCommand(
                 () => 
                 {
