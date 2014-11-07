@@ -1,9 +1,9 @@
 Introduction
 =======
 
-![Try Ruby right inside your Windows Phone](https://cloud.githubusercontent.com/assets/132692/4899901/f06c57f4-6420-11e4-80e1-dc210f907f53.jpg)
+![Try Ruby right inside your Windows Phone](https://cloud.githubusercontent.com/assets/132692/4947725/dd4276a2-666b-11e4-9f30-5301ed8028f2.jpg)
 
-As a Ruby hobbyist, you might have heard of tryruby.org originally created by [why the lucky stiff](http://en.wikipedia.org/wiki/Why_the_lucky_stiff), a great learning tool that enables you to try Ruby inside your browser. Have you ever dreamed of evaluating Ruby expressions right inside your Windows Phone, just like texting inside the Messaging Hub? You've come to the right place.
+As a Ruby hobbyist, you might have heard of tryruby.org originally created by [why the lucky stiff](http://en.wikipedia.org/wiki/Why_the_lucky_stiff), a great learning tool that enables you to try Ruby inside your browser. Have you ever dreamed of evaluating Ruby expressions right inside your Windows Phone, just like texting inside the Messaging Hub? You've come to the right place. Have fun with Ruby!
 
 Features
 =======
@@ -21,8 +21,9 @@ This app is still in BETA stage, and only for study and experiment at this point
 
 Build and run
 =======
+This app is now available in [Windows Phone Store](http://www.windowsphone.com/en-us/store/app/try-ruby-beta/56df56a6-ce3b-4be3-a7eb-d291cf309dbb). You can also download it by scanning the QR code in the above poster.
 
-To run TryRuby on Windows Phone, you'll need to build it with [Windows Phone SDK 8.0](http://dev.windows.com/en-us/develop/download-phone-sdk) or higher. This project is brought to reality thanks to [DLR 1.0](https://github.com/IronLanguages/dlr) and [IronRuby 1.3.1](http://ironruby.net) which is compatible with Ruby 1.9.2. The source code is licensed under MIT License.
+To build and run lastest TryRuby from source code, you'll need [Windows Phone SDK 8.0](http://dev.windows.com/en-us/develop/download-phone-sdk) or higher. This project is brought to reality thanks to [DLR 1.0](https://github.com/IronLanguages/dlr) and [IronRuby 1.3.1](http://ironruby.net) which is compatible with Ruby 1.9.2. The source code is licensed under MIT License.
 
 References
 =======
