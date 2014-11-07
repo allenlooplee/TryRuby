@@ -93,7 +93,7 @@
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
 			<ListBox ItemsSource="{Binding OutputPanel}" ItemTemplate="{StaticResource ReplItemTemplate}"/>
-			<c4fc:ChatBubbleTextBox Text="{Binding InputBox, Mode=TwoWay}" ChatBubbleDirection="LowerRight" c4fb:TextBinding.UpdateSourceOnChange="True" HorizontalAlignment="Right" Height="72" Width="350" Margin="12,0,12,0" Grid.Row="1" FontSize="{StaticResource PhoneFontSizeNormal}">
+			<c4fc:ChatBubbleTextBox Text="{Binding InputBox, Mode=TwoWay}" Hint="type a Ruby expression" ChatBubbleDirection="LowerRight" c4fb:TextBinding.UpdateSourceOnChange="True" HorizontalAlignment="Right" Height="72" Width="350" Margin="12,0,12,0" Grid.Row="1" FontSize="{StaticResource PhoneFontSizeNormal}">
 				<i:Interaction.Triggers>
 					<ei:KeyTrigger FiredOn="KeyUp" Key="Enter">
 						<i:InvokeCommandAction Command="{Binding EnterCommand}"/>
