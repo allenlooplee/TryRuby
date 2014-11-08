@@ -16,39 +16,39 @@ namespace TryRuby.ViewModels
     {
         public MainViewModel()
         {
-            OutputPanel = new ObservableCollection<ChatBubbleViewModel>();
+            Messages = new ObservableCollection<MessageViewModel>();
 
-            WriteIncome("Hi, I'm Ruby. What expressions do you want me to evaluate?");
+            PostMessage("Hi, I'm Ruby. What expressions do you want me to evaluate?", MessageKind.Received);
 
             EnterCommand = new ActionCommand(
                 () => 
                 {
-                    if (!String.IsNullOrWhiteSpace(InputBox))
+                    if (!String.IsNullOrWhiteSpace(Code))
                     {
-                        WriteOutgo(InputBox);
+                        PostMessage(Code, MessageKind.Sent);
 
-                        var result = Repl.Instance.Evaluate(InputBox);
+                        var result = Repl.Instance.Evaluate(Code);
                         if (!String.IsNullOrEmpty(result))
                         {
-                            WriteIncome(result);
+                            PostMessage(result, MessageKind.Received);
                         }
 
-                        InputBox = null;
+                        Code = null;
                     }
                 });
         }
 
-        public ObservableCollection<ChatBubbleViewModel> OutputPanel { get; private set; }
+        public ObservableCollection<MessageViewModel> Messages { get; private set; }
 
-        private string _inputBox;
-        public string InputBox
+        private string _code;
+        public string Code
         {
-            get { return _inputBox; }
+            get { return _code; }
             set
             {
-                if (_inputBox != value)
+                if (_code != value)
                 {
-                    _inputBox = value;
+                    _code = value;
                     RaisePropertyChanged();
                 }
             }
@@ -56,27 +56,13 @@ namespace TryRuby.ViewModels
 
         public ICommand EnterCommand { get; private set; }
 
-        private void WriteIncome(string text)
+        private void PostMessage(string text, MessageKind kind)
         {
-            OutputPanel.Add(
-                new ChatBubbleViewModel
+            Messages.Add(
+                new MessageViewModel
                 {
                     Text = text,
-                    Direction = ChatBubbleDirection.UpperLeft,
-                    Opacity = 1,
-                    HorizontalAlignment = HorizontalAlignment.Left
-                });
-        }
-
-        private void WriteOutgo(string text)
-        {
-            OutputPanel.Add(
-                new ChatBubbleViewModel
-                {
-                    Text = text,
-                    Direction = ChatBubbleDirection.LowerRight,
-                    Opacity = .6,
-                    HorizontalAlignment = HorizontalAlignment.Right
+                    Kind = kind
                 });
         }
     }

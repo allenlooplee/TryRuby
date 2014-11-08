@@ -94,6 +94,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\ChatBubbleDirectionConverter.cs" />
+    <Compile Include="Converters\HorizontalAlignmentConverter.cs" />
+    <Compile Include="Converters\OpacityConverter.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -101,7 +104,7 @@
     <Compile Include="Utils\CopyToClipboardAction.cs" />
     <Compile Include="Utils\LaunchBrowserAction.cs" />
     <Compile Include="Utils\Repl.cs" />
-    <Compile Include="ViewModels\ChatBubbleViewModel.cs" />
+    <Compile Include="ViewModels\MessageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,17 +13,21 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:utils="clr-namespace:TryRuby.Utils"
     xmlns:local="clr-namespace:TryRuby"
+    xmlns:converters="clr-namespace:TryRuby.Converters"
     x:Class="TryRuby.MainPage"
     mc:Ignorable="d"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.Resources>
-        <DataTemplate x:Key="ReplItemTemplate">
+        <converters:ChatBubbleDirectionConverter x:Key="ChatBubbleDirectionConverter"/>
+        <converters:HorizontalAlignmentConverter x:Key="HorizontalAlignmentConverter"/>
+        <converters:OpacityConverter x:Key="OpacityConverter"/>
+        <DataTemplate x:Key="MessageItemTemplate">
         	<Grid Width="456">
         		<c4fc:ChatBubble
-        			ChatBubbleDirection="{Binding Direction}"
-        			Opacity="{Binding Opacity}"
-        			HorizontalAlignment="{Binding HorizontalAlignment}"
+        			ChatBubbleDirection="{Binding Kind, Converter={StaticResource ChatBubbleDirectionConverter}}"
+        			Opacity="{Binding Kind, Converter={StaticResource OpacityConverter}}"
+        			HorizontalAlignment="{Binding Kind, Converter={StaticResource HorizontalAlignmentConverter}}"
         			Margin="12,0,12,0">
                     <toolkit:ContextMenuService.ContextMenu>
                         <toolkit:ContextMenu>
@@ -113,9 +117,9 @@
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
             <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding OutputPanel}" ItemTemplate="{StaticResource ReplItemTemplate}"/>
+                <ItemsControl ItemsSource="{Binding Messages}" ItemTemplate="{StaticResource MessageItemTemplate}"/>
             </ScrollViewer>
-			<c4fc:ChatBubbleTextBox Text="{Binding InputBox, Mode=TwoWay}" Hint="type a Ruby expression" ChatBubbleDirection="LowerRight" c4fb:TextBinding.UpdateSourceOnChange="True" HorizontalAlignment="Right" Height="72" Width="350" Margin="12,0,12,0" Grid.Row="1" FontSize="{StaticResource PhoneFontSizeMedium}">
+			<c4fc:ChatBubbleTextBox Text="{Binding Code, Mode=TwoWay}" Hint="type a Ruby expression" ChatBubbleDirection="LowerRight" c4fb:TextBinding.UpdateSourceOnChange="True" HorizontalAlignment="Right" Height="72" Width="350" Margin="12,0,12,0" Grid.Row="1" FontSize="{StaticResource PhoneFontSizeMedium}">
 				<i:Interaction.Triggers>
                     <ei:KeyTrigger FiredOn="KeyUp" Key="Enter">
                         <i:InvokeCommandAction Command="{Binding EnterCommand}"/>
