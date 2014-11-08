@@ -103,9 +103,8 @@
             Before shipping remove this XAML and the image itself.-->
 		<!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />--><!--TitlePanel contains the name of the application and page title-->
 		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-			<TextBlock x:Name="ApplicationTitle" Text="RUBY" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-			<!--<TextBlock x:Name="PageTitle" Text="conversation" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>-->
-		</StackPanel>
+            <TextBlock x:Name="ApplicationTitle" Text="RUBY" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+        </StackPanel>
 
         <!--ContentPanel - place additional content here-->
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
@@ -113,13 +112,15 @@
 				<RowDefinition/>
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
-			<ListBox ItemsSource="{Binding OutputPanel}" ItemTemplate="{StaticResource ReplItemTemplate}"/>
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding OutputPanel}" ItemTemplate="{StaticResource ReplItemTemplate}"/>
+            </ScrollViewer>
 			<c4fc:ChatBubbleTextBox Text="{Binding InputBox, Mode=TwoWay}" Hint="type a Ruby expression" ChatBubbleDirection="LowerRight" c4fb:TextBinding.UpdateSourceOnChange="True" HorizontalAlignment="Right" Height="72" Width="350" Margin="12,0,12,0" Grid.Row="1" FontSize="{StaticResource PhoneFontSizeMedium}">
 				<i:Interaction.Triggers>
-					<ei:KeyTrigger FiredOn="KeyUp" Key="Enter">
-						<i:InvokeCommandAction Command="{Binding EnterCommand}"/>
-					</ei:KeyTrigger>
-				</i:Interaction.Triggers>
+                    <ei:KeyTrigger FiredOn="KeyUp" Key="Enter">
+                        <i:InvokeCommandAction Command="{Binding EnterCommand}"/>
+                    </ei:KeyTrigger>
+                </i:Interaction.Triggers>
 			</c4fc:ChatBubbleTextBox>
 		</Grid>
 	</Grid>
