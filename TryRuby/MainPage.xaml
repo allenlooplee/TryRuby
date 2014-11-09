@@ -16,12 +16,21 @@
     xmlns:converters="clr-namespace:TryRuby.Converters"
     x:Class="TryRuby.MainPage"
     mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="True" IsVisible="{Binding IsEvaluating}"/>
+    </shell:SystemTray.ProgressIndicator>
+
     <phone:PhoneApplicationPage.Resources>
         <converters:ChatBubbleDirectionConverter x:Key="ChatBubbleDirectionConverter"/>
         <converters:HorizontalAlignmentConverter x:Key="HorizontalAlignmentConverter"/>
         <converters:OpacityConverter x:Key="OpacityConverter"/>
+        
         <DataTemplate x:Key="MessageItemTemplate">
         	<Grid Width="456">
         		<c4fc:ChatBubble
@@ -45,23 +54,13 @@
         					<RowDefinition/>
         					<RowDefinition Height="Auto"/>
         				</Grid.RowDefinitions>
-        				<TextBlock Text="{Binding Text}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneForegroundBrush}"/>
+                        <TextBlock Text="{Binding Text}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneForegroundBrush}"/>
         				<TextBlock Text="{Binding Timestamp, StringFormat=t}" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
         			</Grid>
         		</c4fc:ChatBubble>
         	</Grid>
         </DataTemplate>
     </phone:PhoneApplicationPage.Resources>
-
-	<phone:PhoneApplicationPage.FontFamily>
-		<StaticResource ResourceKey="PhoneFontFamilyNormal"/>
-	</phone:PhoneApplicationPage.FontFamily>
-	<phone:PhoneApplicationPage.FontSize>
-		<StaticResource ResourceKey="PhoneFontSizeNormal"/>
-	</phone:PhoneApplicationPage.FontSize>
-	<phone:PhoneApplicationPage.Foreground>
-		<StaticResource ResourceKey="PhoneForegroundBrush"/>
-	</phone:PhoneApplicationPage.Foreground>
 
     <phone:PhoneApplicationPage.ApplicationBar>
 		<shell:ApplicationBar Mode="Minimized">
@@ -117,9 +116,14 @@
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
             <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding Messages}" ItemTemplate="{StaticResource MessageItemTemplate}"/>
+                <ItemsControl ItemsSource="{Binding ChatMessages}" ItemTemplate="{StaticResource MessageItemTemplate}"/>
             </ScrollViewer>
-			<c4fc:ChatBubbleTextBox Text="{Binding Code, Mode=TwoWay}" Hint="type a Ruby expression" ChatBubbleDirection="LowerRight" c4fb:TextBinding.UpdateSourceOnChange="True" HorizontalAlignment="Right" Height="72" Width="350" Margin="12,0,12,0" Grid.Row="1" FontSize="{StaticResource PhoneFontSizeMedium}">
+            <c4fc:ChatBubbleTextBox
+                Text="{Binding SourceCode, Mode=TwoWay}" Hint="type an expression"
+                ChatBubbleDirection="LowerRight" HorizontalAlignment="Right"
+                IsReadOnly="{Binding IsEvaluating}" c4fb:TextBinding.UpdateSourceOnChange="True"
+                Width="350" Margin="12,0,12,12" Grid.Row="1"
+                FontSize="{StaticResource PhoneFontSizeMedium}">
 				<i:Interaction.Triggers>
                     <ei:KeyTrigger FiredOn="KeyUp" Key="Enter">
                         <i:InvokeCommandAction Command="{Binding EnterCommand}"/>

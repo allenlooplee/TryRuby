@@ -8,9 +8,9 @@ using System.Windows;
 
 namespace TryRuby.ViewModels
 {
-    public class MessageViewModel
+    public class ChatMessageViewModel
     {
-        public MessageViewModel()
+        public ChatMessageViewModel()
         {
             Timestamp = DateTime.Now;
         }
@@ -19,10 +19,10 @@ namespace TryRuby.ViewModels
 
         public DateTime Timestamp { get; private set; }
 
-        public MessageKind Kind { get; set; }
+        public ChatMessageKind Kind { get; set; }
     }
 
-    public enum MessageKind
+    public enum ChatMessageKind
     {
         Sent,
         Received

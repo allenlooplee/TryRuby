@@ -16,39 +16,60 @@ namespace TryRuby.ViewModels
     {
         public MainViewModel()
         {
-            Messages = new ObservableCollection<MessageViewModel>();
+            ChatMessages = new ObservableCollection<ChatMessageViewModel>();
 
-            PostMessage("Hi, I'm Ruby. What expressions do you want me to evaluate?", MessageKind.Received);
+            PostMessage("Hi, I'm Ruby. What expressions do you want me to evaluate?", ChatMessageKind.Received);
 
             EnterCommand = new ActionCommand(
-                () => 
+                async () => 
                 {
-                    if (!String.IsNullOrWhiteSpace(Code))
+                    if (!String.IsNullOrWhiteSpace(SourceCode))
                     {
-                        PostMessage(Code, MessageKind.Sent);
+                        PostMessage(SourceCode, ChatMessageKind.Sent);
 
-                        var result = Repl.Instance.Evaluate(Code);
+                        IsEvaluating = true;
+
+                        Repl.Instance.SourceCode = SourceCode;
+                        var result = await Repl.Instance.EvaluateAsync();
+
+                        IsEvaluating = false;
+
                         if (!String.IsNullOrEmpty(result))
                         {
-                            PostMessage(result, MessageKind.Received);
+                            PostMessage(result, ChatMessageKind.Received);
                         }
 
-                        Code = null;
+                        SourceCode = null;
                     }
                 });
         }
 
-        public ObservableCollection<MessageViewModel> Messages { get; private set; }
+        public ObservableCollection<ChatMessageViewModel> ChatMessages { get; private set; }
 
-        private string _code;
-        public string Code
+        private string _sourceCode;
+        public string SourceCode
         {
-            get { return _code; }
+            get { return _sourceCode; }
             set
             {
-                if (_code != value)
+                if (_sourceCode != value)
                 {
-                    _code = value;
+                    _sourceCode = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        private bool _isEvaluating;
+
+        public bool IsEvaluating
+        {
+            get { return _isEvaluating; }
+            set
+            {
+                if (_isEvaluating != value)
+                {
+                    _isEvaluating = value;
                     RaisePropertyChanged();
                 }
             }
@@ -56,10 +77,10 @@ namespace TryRuby.ViewModels
 
         public ICommand EnterCommand { get; private set; }
 
-        private void PostMessage(string text, MessageKind kind)
+        private void PostMessage(string text, ChatMessageKind kind)
         {
-            Messages.Add(
-                new MessageViewModel
+            ChatMessages.Add(
+                new ChatMessageViewModel
                 {
                     Text = text,
                     Kind = kind

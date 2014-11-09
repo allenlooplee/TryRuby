@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="Converters\ChatBubbleDirectionConverter.cs" />
     <Compile Include="Converters\HorizontalAlignmentConverter.cs" />
+    <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\OpacityConverter.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -104,7 +105,7 @@
     <Compile Include="Utils\CopyToClipboardAction.cs" />
     <Compile Include="Utils\LaunchBrowserAction.cs" />
     <Compile Include="Utils\Repl.cs" />
-    <Compile Include="ViewModels\MessageViewModel.cs" />
+    <Compile Include="ViewModels\ChatMessageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

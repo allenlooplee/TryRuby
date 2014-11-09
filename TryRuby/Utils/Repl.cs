@@ -15,6 +15,8 @@ namespace TryRuby.Utils
         {
             _engine = Ruby.CreateEngine();
             _scope = _engine.CreateScope();
+
+            SourceCodeKind = SourceCodeKind.Expression;
         }
 
         private static Repl _instance = new Repl();
@@ -23,9 +25,13 @@ namespace TryRuby.Utils
             get { return _instance; }
         }
 
-        public string Evaluate(string code, SourceCodeKind kind = SourceCodeKind.Expression)
+        public string SourceCode { get; set; }
+
+        public SourceCodeKind SourceCodeKind { get; set; }
+
+        public string Evaluate()
         {
-            var source = _engine.CreateScriptSourceFromString(code, kind);
+            var source = _engine.CreateScriptSourceFromString(SourceCode, SourceCodeKind);
             var props = source.GetCodeProperties();
 
             if (props == ScriptCodeParseResult.Complete)
@@ -52,6 +58,11 @@ namespace TryRuby.Utils
             {
                 return "Oops! Syntax error! Can you double check your code?";
             }
+        }
+
+        public async Task<string> EvaluateAsync()
+        {
+            return await Task.Factory.StartNew<string>(Evaluate);
         }
 
         private ScriptEngine _engine;

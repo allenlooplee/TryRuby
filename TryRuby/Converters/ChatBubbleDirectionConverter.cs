@@ -13,12 +13,12 @@ namespace TryRuby.Converters
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            var messageKind = (MessageKind)value;
+            var messageKind = (ChatMessageKind)value;
             switch (messageKind)
             {
-                case MessageKind.Sent:
+                case ChatMessageKind.Sent:
                     return ChatBubbleDirection.LowerRight;
-                case MessageKind.Received:
+                case ChatMessageKind.Received:
                     return ChatBubbleDirection.UpperLeft;
                 default:
                     throw new InvalidOperationException();
