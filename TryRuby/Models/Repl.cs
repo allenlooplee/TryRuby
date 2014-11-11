@@ -19,7 +19,7 @@ namespace TryRuby.Models
 
             Messages = new ObservableCollection<ReplMessage>();
 
-            PostMessage("Hi, I'm Ruby. What expressions do you want me to evaluate?", ReplMessageKind.Received);
+            PostMessage("Hi, I'm Ruby. What code do you want me to evaluate?", ReplMessageKind.Received);
         }
 
         private static Repl _instance = new Repl();
@@ -30,11 +30,11 @@ namespace TryRuby.Models
 
         public ObservableCollection<ReplMessage> Messages { get; private set; }
 
-        public async Task Send(string sourceCode, SourceCodeKind sourceCodeKind = SourceCodeKind.Expression)
+        public async Task Send(string sourceCode)
         {
             PostMessage(sourceCode, ReplMessageKind.Sent);
 
-            var result = await Task.Run<string>(() => Evaluate(sourceCode, sourceCodeKind));
+            var result = await Task.Run<string>(() => Evaluate(sourceCode));
 
             PostMessage(result, ReplMessageKind.Received);
         }
@@ -52,9 +52,9 @@ namespace TryRuby.Models
                 });
         }
 
-        private string Evaluate(string sourceCode, SourceCodeKind sourceCodeKind)
+        private string Evaluate(string sourceCode)
         {
-            var source = _engine.CreateScriptSourceFromString(sourceCode, sourceCodeKind);
+            var source = _engine.CreateScriptSourceFromString(sourceCode);
             var props = source.GetCodeProperties();
 
             if (props == ScriptCodeParseResult.Complete)
@@ -69,7 +69,7 @@ namespace TryRuby.Models
                     }
                     else
                     {
-                        return "Hey, nothing returned.";
+                        return "Code evaluated with no result.";
                     }
                 }
                 catch (Exception ex)
@@ -79,7 +79,7 @@ namespace TryRuby.Models
             }
             else
             {
-                return "Oops! Syntax errors!";
+                return "Oops! Syntax errors caught!";
             }
         }
     }

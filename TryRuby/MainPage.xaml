@@ -63,15 +63,17 @@
     </phone:PhoneApplicationPage.Resources>
 
     <phone:PhoneApplicationPage.ApplicationBar>
-		<shell:ApplicationBar Mode="Minimized">
+		<shell:ApplicationBar>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="help"/>
             </shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/SendText.png" Text="send"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
 	<i:Interaction.Behaviors>
 		<AppBarUtils:AppBarItemNavigation Type="MenuItem" Id="help" TargetPage="/Views/HelpPage.xaml"/>
+        <AppBarUtils:AppBarItemCommand Id="send" Command="{Binding SendCommand}"/>
 	</i:Interaction.Behaviors>
     
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -122,14 +124,9 @@
                 Text="{Binding SourceCode, Mode=TwoWay}" Hint="type an expression"
                 ChatBubbleDirection="LowerRight" HorizontalAlignment="Right"
                 IsReadOnly="{Binding IsEvaluating}" c4fb:TextBinding.UpdateSourceOnChange="True"
+                AcceptsReturn="True"
                 Width="370" Margin="12,0,12,12" Grid.Row="1"
-                FontSize="{StaticResource PhoneFontSizeMedium}">
-				<i:Interaction.Triggers>
-                    <ei:KeyTrigger FiredOn="KeyUp" Key="Enter">
-                        <i:InvokeCommandAction Command="{Binding SendCommand}"/>
-                    </ei:KeyTrigger>
-                </i:Interaction.Triggers>
-			</c4fc:ChatBubbleTextBox>
+                FontSize="{StaticResource PhoneFontSizeMedium}"/>
 		</Grid>
 	</Grid>
 

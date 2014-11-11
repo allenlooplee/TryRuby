@@ -22,7 +22,7 @@ namespace TryRuby.ViewModels
                 {
                     if (!String.IsNullOrWhiteSpace(SourceCode))
                     {
-                        await Repl.Instance.Send(SourceCode);
+                        await Repl.Instance.Send(SourceCode.Replace("\r", Environment.NewLine));
 
                         SourceCode = null;
                     }
