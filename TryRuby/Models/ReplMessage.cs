@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace TryRuby.ViewModels
+namespace TryRuby.Models
 {
-    public class ChatMessageViewModel
+    public class ReplMessage
     {
-        public ChatMessageViewModel()
+        public ReplMessage()
         {
             Timestamp = DateTime.Now;
         }
@@ -19,10 +19,10 @@ namespace TryRuby.ViewModels
 
         public DateTime Timestamp { get; private set; }
 
-        public ChatMessageKind Kind { get; set; }
+        public ReplMessageKind Kind { get; set; }
     }
 
-    public enum ChatMessageKind
+    public enum ReplMessageKind
     {
         Sent,
         Received

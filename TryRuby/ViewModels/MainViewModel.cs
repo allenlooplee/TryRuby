@@ -8,43 +8,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using TryRuby.Models;
 using TryRuby.Utils;
 
 namespace TryRuby.ViewModels
 {
-    public class MainViewModel : ObservableObject
+    public class MainViewModel : AsyncViewModelBase
     {
         public MainViewModel()
         {
-            ChatMessages = new ObservableCollection<ChatMessageViewModel>();
-
-            PostMessage("Hi, I'm Ruby. What expressions do you want me to evaluate?", ChatMessageKind.Received);
-
-            EnterCommand = new ActionCommand(
+            SendCommand = CreateAsyncCommand(
                 async () => 
                 {
                     if (!String.IsNullOrWhiteSpace(SourceCode))
                     {
-                        PostMessage(SourceCode, ChatMessageKind.Sent);
-
-                        IsEvaluating = true;
-
-                        Repl.Instance.SourceCode = SourceCode;
-                        var result = await Repl.Instance.EvaluateAsync();
-
-                        IsEvaluating = false;
-
-                        if (!String.IsNullOrEmpty(result))
-                        {
-                            PostMessage(result, ChatMessageKind.Received);
-                        }
+                        await Repl.Instance.Send(SourceCode);
 
                         SourceCode = null;
                     }
                 });
         }
 
-        public ObservableCollection<ChatMessageViewModel> ChatMessages { get; private set; }
+        public ObservableCollection<ReplMessage> ReplMessages
+        {
+            get { return Repl.Instance.Messages; }
+        }
 
         private string _sourceCode;
         public string SourceCode
@@ -60,31 +48,6 @@ namespace TryRuby.ViewModels
             }
         }
 
-        private bool _isEvaluating;
-
-        public bool IsEvaluating
-        {
-            get { return _isEvaluating; }
-            set
-            {
-                if (_isEvaluating != value)
-                {
-                    _isEvaluating = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
-
-        public ICommand EnterCommand { get; private set; }
-
-        private void PostMessage(string text, ChatMessageKind kind)
-        {
-            ChatMessages.Add(
-                new ChatMessageViewModel
-                {
-                    Text = text,
-                    Kind = kind
-                });
-        }
+        public ICommand SendCommand { get; private set; }
     }
 }

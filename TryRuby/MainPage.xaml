@@ -116,17 +116,17 @@
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
             <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding ChatMessages}" ItemTemplate="{StaticResource MessageItemTemplate}"/>
+                <ItemsControl ItemsSource="{Binding ReplMessages}" ItemTemplate="{StaticResource MessageItemTemplate}"/>
             </ScrollViewer>
             <c4fc:ChatBubbleTextBox
                 Text="{Binding SourceCode, Mode=TwoWay}" Hint="type an expression"
                 ChatBubbleDirection="LowerRight" HorizontalAlignment="Right"
                 IsReadOnly="{Binding IsEvaluating}" c4fb:TextBinding.UpdateSourceOnChange="True"
-                Width="350" Margin="12,0,12,12" Grid.Row="1"
+                Width="370" Margin="12,0,12,12" Grid.Row="1"
                 FontSize="{StaticResource PhoneFontSizeMedium}">
 				<i:Interaction.Triggers>
                     <ei:KeyTrigger FiredOn="KeyUp" Key="Enter">
-                        <i:InvokeCommandAction Command="{Binding EnterCommand}"/>
+                        <i:InvokeCommandAction Command="{Binding SendCommand}"/>
                     </ei:KeyTrigger>
                 </i:Interaction.Triggers>
 			</c4fc:ChatBubbleTextBox>

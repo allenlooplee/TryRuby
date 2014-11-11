@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
-using TryRuby.ViewModels;
+using TryRuby.Models;
 
 namespace TryRuby.Converters
 {
@@ -13,12 +13,12 @@ namespace TryRuby.Converters
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            var messageKind = (ChatMessageKind)value;
+            var messageKind = (ReplMessageKind)value;
             switch (messageKind)
             {
-                case ChatMessageKind.Sent:
+                case ReplMessageKind.Sent:
                     return ChatBubbleDirection.LowerRight;
-                case ChatMessageKind.Received:
+                case ReplMessageKind.Received:
                     return ChatBubbleDirection.UpperLeft;
                 default:
                     throw new InvalidOperationException();
