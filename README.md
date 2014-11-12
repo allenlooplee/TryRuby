@@ -11,7 +11,7 @@ Features
 This app is still in BETA stage, and only for study and experiment at this point of time. Here's a list of what I plan to implement:
 
 1. Copy previous expressions/results [done]
-2. Multi-line code scenarios
+2. Multi-line code scenarios [done]
 3. Save user-defined code
 4. Learning mode
 
