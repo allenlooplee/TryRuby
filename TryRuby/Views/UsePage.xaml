@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:c4fc="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -27,10 +28,109 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock TextWrapping="Wrap" Text="Type any valid Ruby code within the text box and tap send button. You'll see the evaluated result immediately." VerticalAlignment="Top" FontSize="{StaticResource PhoneFontSizeNormal}" Margin="12,0,12,12"/>
-            <TextBlock TextWrapping="Wrap" Text="Note: This app is still in BETA stage, and only for study and experiment at this point of time." VerticalAlignment="Top" Margin="{StaticResource PhoneHorizontalMargin}" FontSize="{StaticResource PhoneFontSizeNormal}"/>
-        </StackPanel>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,12">
+            <!--<TextBlock TextWrapping="Wrap" Text="Type any valid Ruby code within the text box and tap send button. You'll see the evaluated result immediately." VerticalAlignment="Top" FontSize="{StaticResource PhoneFontSizeNormal}" Margin="12,0,12,12"/>
+            <TextBlock TextWrapping="Wrap" Text="Note: This app is still in BETA stage, and only for study and experiment at this point of time." VerticalAlignment="Top" Margin="{StaticResource PhoneHorizontalMargin}" FontSize="{StaticResource PhoneFontSizeNormal}"/>-->
+            <ScrollViewer>
+                <ItemsControl>
+                    <c4fc:ChatBubble
+        			    ChatBubbleDirection="UpperLeft"
+        			    HorizontalAlignment="Left"
+        			    Margin="12,0,12,0">
+                        <TextBlock
+                            Text="Hi, I'm Ruby. Let me help you program right inside your phone, of course, in Ruby."
+                            TextWrapping="Wrap" Width="350"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                    </c4fc:ChatBubble>
+                    <!--Q1-->
+                    <c4fc:ChatBubble
+        			    ChatBubbleDirection="LowerRight"
+        			    HorizontalAlignment="Right"
+        			    Margin="12,0,12,0" Opacity="0.6">
+                        <TextBlock
+                            Text="How can I evaluate Ruby code?"
+                            TextWrapping="Wrap" Width="350"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                    </c4fc:ChatBubble>
+                    <c4fc:ChatBubble
+        			    ChatBubbleDirection="UpperLeft"
+        			    HorizontalAlignment="Left"
+        			    Margin="12,0,12,0">
+                        <TextBlock
+                            Text="Type it inside the text box and tap the send button. The evaluated result will show immediately."
+                            TextWrapping="Wrap" Width="350"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                    </c4fc:ChatBubble>
+                    <!--Q2-->
+                    <c4fc:ChatBubble
+        			    ChatBubbleDirection="LowerRight"
+        			    HorizontalAlignment="Right"
+        			    Margin="12,0,12,0" Opacity="0.6">
+                        <TextBlock
+                            Text="Can I copy previously evaluated code/result?"
+                            TextWrapping="Wrap" Width="350"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                    </c4fc:ChatBubble>
+                    <c4fc:ChatBubble
+        			    ChatBubbleDirection="UpperLeft"
+        			    HorizontalAlignment="Left"
+        			    Margin="12,0,12,0">
+                        <TextBlock
+                            Text="Yes, tap and hold any code/result to reveal the context menu, then tap the copy menu item."
+                            TextWrapping="Wrap" Width="350"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                    </c4fc:ChatBubble>
+                    <!--Q3-->
+                    <c4fc:ChatBubble
+        			    ChatBubbleDirection="LowerRight"
+        			    HorizontalAlignment="Right"
+        			    Margin="12,0,12,0" Opacity="0.6">
+                        <TextBlock
+                            Text="Can I do math?"
+                            TextWrapping="Wrap" Width="350"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                    </c4fc:ChatBubble>
+                    <c4fc:ChatBubble
+        			    ChatBubbleDirection="UpperLeft"
+        			    HorizontalAlignment="Left"
+        			    Margin="12,0,12,0">
+                        <TextBlock
+                            Text="Yes, this is actually an advanced calculator. Go try a math expression like (3 + 2) * 5. For advanced math operations, try methods of Math module like Math.sqrt."
+                            TextWrapping="Wrap" Width="350"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                    </c4fc:ChatBubble>
+                    <!--Q4-->
+                    <c4fc:ChatBubble
+        			    ChatBubbleDirection="LowerRight"
+        			    HorizontalAlignment="Right"
+        			    Margin="12,0,12,0" Opacity="0.6">
+                        <TextBlock
+                            Text="Can I define methods and classes?"
+                            TextWrapping="Wrap" Width="350"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                    </c4fc:ChatBubble>
+                    <c4fc:ChatBubble
+        			    ChatBubbleDirection="UpperLeft"
+        			    HorizontalAlignment="Left"
+        			    Margin="12,0,12,0">
+                        <TextBlock
+                            Text="Sure, methods and classes help you better organize your code. Go ahead and have a try."
+                            TextWrapping="Wrap" Width="350"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                    </c4fc:ChatBubble>
+                    <!--Q5-->
+                    <c4fc:ChatBubble
+        			    ChatBubbleDirection="UpperLeft"
+        			    HorizontalAlignment="Left"
+        			    Margin="12,0,12,0">
+                        <TextBlock
+                            Text="Please be aware that this app is still in BETA stage, and only for study and experiment at this point of time."
+                            TextWrapping="Wrap" Width="350"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                    </c4fc:ChatBubble>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 
 </phone:PhoneApplicationPage>

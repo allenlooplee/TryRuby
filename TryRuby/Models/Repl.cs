@@ -19,7 +19,7 @@ namespace TryRuby.Models
 
             Messages = new ObservableCollection<ReplMessage>();
 
-            PostMessage("Hi, I'm Ruby. What code do you want me to evaluate?", ReplMessageKind.Received);
+            PostMessage("Hi, I'm Ruby, ready for your code.", ReplMessageKind.Received);
         }
 
         private static Repl _instance = new Repl();
@@ -69,7 +69,7 @@ namespace TryRuby.Models
                     }
                     else
                     {
-                        return "Code evaluated with no result.";
+                        return "Code evaluated successfully.";
                     }
                 }
                 catch (Exception ex)
@@ -79,7 +79,7 @@ namespace TryRuby.Models
             }
             else
             {
-                return "Oops! Syntax errors caught!";
+                return "Oops! Syntax errors found.";
             }
         }
     }
