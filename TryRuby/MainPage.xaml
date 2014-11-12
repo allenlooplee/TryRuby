@@ -121,12 +121,12 @@
                 <ItemsControl ItemsSource="{Binding ReplMessages}" ItemTemplate="{StaticResource MessageItemTemplate}"/>
             </ScrollViewer>
             <c4fc:ChatBubbleTextBox
-                Text="{Binding SourceCode, Mode=TwoWay}" Hint="type an expression"
+                Text="{Binding SourceCode, Mode=TwoWay}" Hint="type your code here"
                 ChatBubbleDirection="LowerRight" HorizontalAlignment="Right"
                 IsReadOnly="{Binding IsEvaluating}" c4fb:TextBinding.UpdateSourceOnChange="True"
                 AcceptsReturn="True"
                 Width="370" Margin="12,0,12,12" Grid.Row="1"
-                FontSize="{StaticResource PhoneFontSizeMedium}"/>
+                FontSize="{StaticResource PhoneFontSizeNormal}" Padding="6"/>
 		</Grid>
 	</Grid>
 
