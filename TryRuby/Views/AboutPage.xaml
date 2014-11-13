@@ -35,7 +35,7 @@
         		<RowDefinition/>
         	</Grid.RowDefinitions>
         	<Image HorizontalAlignment="Center" Source="/Assets/Tiles/FlipCycleTileSmall.png" Stretch="None" Margin="{StaticResource PhoneMargin}"/>
-        	<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Version 1.5 BETA" Grid.Row="1" Margin="{StaticResource PhoneMargin}" FontSize="{StaticResource PhoneFontSizeMediumLarge}"/>
+        	<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Version 2.0 BETA" Grid.Row="1" Margin="{StaticResource PhoneMargin}" FontSize="{StaticResource PhoneFontSizeMediumLarge}"/>
         	<TextBlock TextWrapping="Wrap" Text="This project is brought to reality thanks to DLR 1.0 and IronRuby 1.3.1 which is compatible with Ruby 1.9.2. The source code is provided on GitHub under MIT License." Grid.Row="2" Margin="{StaticResource PhoneMargin}" FontSize="{StaticResource PhoneFontSizeNormal}"/>
         	<HyperlinkButton Content="Fork me on GitHub" VerticalAlignment="Top" Grid.Row="3" HorizontalAlignment="Left" NavigateUri="https://github.com/allenlooplee/TryRuby" TargetName="_blank" Margin="{StaticResource PhoneVerticalMargin}" FontSize="{StaticResource PhoneFontSizeNormal}"/>
 
