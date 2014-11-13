@@ -1,7 +1,7 @@
 Introduction
 =======
 
-![Try Ruby right inside your Windows Phone](https://cloud.githubusercontent.com/assets/132692/4947725/dd4276a2-666b-11e4-9f30-5301ed8028f2.jpg)
+![Try Ruby right inside your Windows Phone](https://cloud.githubusercontent.com/assets/132692/5021806/f63703a4-6b15-11e4-8cef-ad0818d263cc.jpg)
 
 As a Ruby hobbyist, you might have heard of tryruby.org originally created by [why the lucky stiff](http://en.wikipedia.org/wiki/Why_the_lucky_stiff), a great learning tool that enables you to try Ruby inside your browser. Have you ever dreamed of evaluating Ruby expressions right inside your Windows Phone, just like texting inside the Messaging Hub? You've come to the right place. Have fun with Ruby!
 
@@ -10,10 +10,13 @@ Features
 
 This app is still in BETA stage, and only for study and experiment at this point of time. Here's a list of what I plan to implement:
 
+1. Save user-defined code
+2. Learning mode
+
+**1.5 BETA (2014-11-13):**
+
 1. Copy previous expressions/results [done]
 2. Multi-line code scenarios [done]
-3. Save user-defined code
-4. Learning mode
 
 **1.0 BETA (2014-11-7):**
 
