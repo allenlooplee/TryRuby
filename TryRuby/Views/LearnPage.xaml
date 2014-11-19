@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
     xmlns:local="clr-namespace:TryRuby"
+    xmlns:behaviors="clr-namespace:TryRuby.Behaviors"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     x:Class="TryRuby.LearnPage"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -35,7 +36,7 @@
 				<StackPanel Margin="0,0,0,12">
 					<i:Interaction.Triggers>
 						<i:EventTrigger EventName="Tap">
-							<local:LaunchBrowserAction Uri="https://www.ruby-lang.org/en/documentation/quickstart/"/>
+                            <behaviors:LaunchBrowserAction Uri="https://www.ruby-lang.org/en/documentation/quickstart/"/>
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
                     <TextBlock TextWrapping="Wrap" Text="Ruby in Twenty Minutes" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneForegroundBrush}"/>
@@ -44,7 +45,7 @@
 				<StackPanel Margin="0,0,0,12">
 					<i:Interaction.Triggers>
 						<i:EventTrigger EventName="Tap">
-							<local:LaunchBrowserAction Uri="http://mislav.uniqpath.com/poignant-guide/"/>
+                            <behaviors:LaunchBrowserAction Uri="http://mislav.uniqpath.com/poignant-guide/"/>
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
                     <TextBlock Text="Why's (Poignant) Guide to Ruby" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneForegroundBrush}"/>
@@ -53,7 +54,7 @@
 				<StackPanel Margin="0,0,0,12">
 					<i:Interaction.Triggers>
 						<i:EventTrigger EventName="Tap">
-							<local:LaunchBrowserAction Uri="http://rubyweekly.com/"/>
+                            <behaviors:LaunchBrowserAction Uri="http://rubyweekly.com/"/>
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
                     <TextBlock Text="Ruby Weekly" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneForegroundBrush}"/>
@@ -62,7 +63,7 @@
 				<StackPanel Margin="0,0,0,12">
 					<i:Interaction.Triggers>
 						<i:EventTrigger EventName="Tap">
-							<local:LaunchBrowserAction Uri="http://en.wikibooks.org/wiki/Ruby_Programming"/>
+                            <behaviors:LaunchBrowserAction Uri="http://en.wikibooks.org/wiki/Ruby_Programming"/>
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
                     <TextBlock Text="The Ruby Programming Wikibook" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneForegroundBrush}"/>
@@ -71,7 +72,7 @@
 				<StackPanel Margin="0,0,0,12">
 					<i:Interaction.Triggers>
 						<i:EventTrigger EventName="Tap">
-							<local:LaunchBrowserAction Uri="http://www.ruby-doc.org/core-2.1.4/"/>
+                            <behaviors:LaunchBrowserAction Uri="http://www.ruby-doc.org/core-2.1.4/"/>
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
                     <TextBlock Text="Ruby Core Reference" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneForegroundBrush}"/>

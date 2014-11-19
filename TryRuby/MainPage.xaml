@@ -12,7 +12,7 @@
     xmlns:AppBarUtils="clr-namespace:AppBarUtils;assembly=AppBarUtils"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:utils="clr-namespace:TryRuby.Utils"
-    xmlns:local="clr-namespace:TryRuby"
+    xmlns:behaviors="clr-namespace:TryRuby.Behaviors"
     xmlns:converters="clr-namespace:TryRuby.Converters"
     x:Class="TryRuby.MainPage"
     mc:Ignorable="d"
@@ -30,6 +30,7 @@
         <converters:ChatBubbleDirectionConverter x:Key="ChatBubbleDirectionConverter"/>
         <converters:ChatBubbleBrushConverter x:Key="ChatBubbleBrushConverter"/>
         <converters:HorizontalAlignmentConverter x:Key="HorizontalAlignmentConverter"/>
+        <converters:EnableSaveCodeConverter x:Key="EnableSaveCodeConverter"/>
         
         <DataTemplate x:Key="MessageItemTemplate">
         	<Grid Width="456">
@@ -44,7 +45,14 @@
                             <toolkit:MenuItem Header="copy">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
-                                        <local:CopyToClipboardAction Text="{Binding Text}"/>
+                                        <behaviors:CopyToClipboardAction Text="{Binding Text}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </toolkit:MenuItem>
+                            <toolkit:MenuItem Header="save" IsEnabled="{Binding Kind, Converter={StaticResource EnableSaveCodeConverter}}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <behaviors:SaveCodeAction Content="{Binding Text}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </toolkit:MenuItem>

@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Interactivity;
 
-namespace TryRuby
+namespace TryRuby.Behaviors
 {
 	//
 	// If you want your Action to target elements other than its parent, extend your class

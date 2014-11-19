@@ -12,7 +12,7 @@ using System.Windows.Shapes;
 using System.Windows.Interactivity;
 using Microsoft.Phone.Tasks;
 
-namespace TryRuby
+namespace TryRuby.Behaviors
 {
 	//
 	// If you want your Action to target elements other than its parent, extend your class
