@@ -10,8 +10,9 @@ Features
 
 This app is still in BETA stage, and only for study and experiment at this point of time. Here's a list of what I plan to implement:
 
-1. Save user-defined code
-2. Learning mode
+1. Save user-defined code [done]
+2. List saved code
+3. Learning mode
 
 **1.5 BETA (2014-11-13):**
 
