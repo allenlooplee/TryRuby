@@ -8,15 +8,9 @@ using Windows.Storage;
 
 namespace TryRuby.Utils
 {
-    public class StorageManager
+    public class FileUtil
     {
-        private static StorageManager _instance = new StorageManager();
-        public static StorageManager Instance
-        {
-            get { return _instance; }
-        }
-
-        public async Task SaveFileAsync(string folderName, string fileName, string content)
+        public static async Task<StorageFile> WriteAllTextAsync(string folderName, string fileName, string text)
         {
             var rootFolder = ApplicationData.Current.LocalFolder;
             var folder = await rootFolder.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
@@ -25,20 +19,13 @@ namespace TryRuby.Utils
             using (var stream = await file.OpenStreamForWriteAsync())
             using (var writer = new StreamWriter(stream))
             {
-                await writer.WriteAsync(content);
+                await writer.WriteAsync(text);
             }
+
+            return file;
         }
 
-        public async Task<IEnumerable<string>> EnumerateFilesAsync(string folderName)
-        {
-            var rootFolder = ApplicationData.Current.LocalFolder;
-            var folder = await rootFolder.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
-            var files = await folder.GetFilesAsync();
-
-            return files.Select(f => f.Name);
-        }
-
-        public async Task<string> LoadFileAsync(string folderName, string fileName)
+        public static async Task<string> ReadAllTextAsync(string folderName, string fileName)
         {
             var rootFolder = ApplicationData.Current.LocalFolder;
             var folder = await rootFolder.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
@@ -49,6 +36,22 @@ namespace TryRuby.Utils
             {
                 return await reader.ReadToEndAsync();
             }
+        }
+
+        public static async Task DeleteAsync(string folderName, string fileName)
+        {
+            var rootFolder = ApplicationData.Current.LocalFolder;
+            var folder = await rootFolder.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
+            var file = await folder.GetFileAsync(fileName);
+
+            await file.DeleteAsync();
+        }
+
+        public static async Task<IEnumerable<StorageFile>> EnumerateFilesAsync(string folderName)
+        {
+            var rootFolder = ApplicationData.Current.LocalFolder;
+            var folder = await rootFolder.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
+            return await folder.GetFilesAsync();
         }
     }
 }

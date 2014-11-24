@@ -94,6 +94,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Behaviors\DeleteCodeAction.cs" />
+    <Compile Include="Behaviors\EvaluateCodeAction.cs" />
     <Compile Include="Behaviors\SaveCodeAction.cs" />
     <Compile Include="Converters\ChatBubbleBrushConverter.cs" />
     <Compile Include="Converters\ChatBubbleDirectionConverter.cs" />
@@ -106,9 +108,11 @@
     </Compile>
     <Compile Include="Behaviors\CopyToClipboardAction.cs" />
     <Compile Include="Behaviors\LaunchBrowserAction.cs" />
+    <Compile Include="Models\CodeFile.cs" />
+    <Compile Include="Models\CodeFileManager.cs" />
     <Compile Include="Models\Repl.cs" />
     <Compile Include="Models\ReplMessage.cs" />
-    <Compile Include="Utils\StorageManager.cs" />
+    <Compile Include="Utils\FileUtil.cs" />
     <Compile Include="ViewModels\AsyncViewModelBase.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Utils\ObservableObject.cs" />
@@ -118,6 +122,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ManageCodeFilesViewModel.cs" />
     <Compile Include="Views\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
@@ -126,6 +131,9 @@
     </Compile>
     <Compile Include="Views\LearnPage.xaml.cs">
       <DependentUpon>LearnPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageCodeFilesPage.xaml.cs">
+      <DependentUpon>ManageCodeFilesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UsePage.xaml.cs">
       <DependentUpon>UsePage.xaml</DependentUpon>
@@ -151,6 +159,10 @@
     <Page Include="Views\LearnPage.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ManageCodeFilesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UsePage.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>

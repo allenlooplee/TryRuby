@@ -11,15 +11,15 @@ namespace TryRuby.ViewModels
 {
     public class AsyncViewModelBase : ObservableObject
     {
-        private bool _isEvaluating;
-        public bool IsEvaluating
+        private bool _isExecutingCommand;
+        public bool IsExecutingCommand
         {
-            get { return _isEvaluating; }
+            get { return _isExecutingCommand; }
             set
             {
-                if (_isEvaluating != value)
+                if (_isExecutingCommand != value)
                 {
-                    _isEvaluating = value;
+                    _isExecutingCommand = value;
                     RaisePropertyChanged();
                 }
             }
@@ -30,11 +30,11 @@ namespace TryRuby.ViewModels
             return CreateCommand(
                 async () =>
                 {
-                    IsEvaluating = true;
+                    IsExecutingCommand = true;
 
                     await asyncAction();
 
-                    IsEvaluating = false;
+                    IsExecutingCommand = false;
                 });
         }
 

@@ -23,7 +23,7 @@
     shell:SystemTray.IsVisible="True">
 
     <shell:SystemTray.ProgressIndicator>
-        <shell:ProgressIndicator IsIndeterminate="True" IsVisible="{Binding IsEvaluating}"/>
+        <shell:ProgressIndicator IsIndeterminate="True" IsVisible="{Binding IsExecutingCommand}"/>
     </shell:SystemTray.ProgressIndicator>
 
     <phone:PhoneApplicationPage.Resources>
@@ -32,7 +32,7 @@
         <converters:HorizontalAlignmentConverter x:Key="HorizontalAlignmentConverter"/>
         <converters:EnableSaveCodeConverter x:Key="EnableSaveCodeConverter"/>
         
-        <DataTemplate x:Key="MessageItemTemplate">
+        <DataTemplate x:Key="ReplMessageTemplate">
         	<Grid Width="456">
         		<c4fc:ChatBubble
         			ChatBubbleDirection="{Binding Kind, Converter={StaticResource ChatBubbleDirectionConverter}}"
@@ -52,7 +52,7 @@
                             <toolkit:MenuItem Header="save" IsEnabled="{Binding Kind, Converter={StaticResource EnableSaveCodeConverter}}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
-                                        <behaviors:SaveCodeAction Content="{Binding Text}"/>
+                                        <behaviors:SaveCodeAction Code="{Binding Text}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </toolkit:MenuItem>
@@ -74,6 +74,7 @@
     <phone:PhoneApplicationPage.ApplicationBar>
 		<shell:ApplicationBar>
             <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="manage code"/>
                 <shell:ApplicationBarMenuItem Text="help"/>
             </shell:ApplicationBar.MenuItems>
             <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/SendText.png" Text="send"/>
@@ -81,7 +82,8 @@
     </phone:PhoneApplicationPage.ApplicationBar>
 
 	<i:Interaction.Behaviors>
-		<AppBarUtils:AppBarItemNavigation Type="MenuItem" Id="help" TargetPage="/Views/HelpPage.xaml"/>
+        <AppBarUtils:AppBarItemNavigation Type="MenuItem" Id="manage code" TargetPage="/Views/ManageCodeFilesPage.xaml"/>
+        <AppBarUtils:AppBarItemNavigation Type="MenuItem" Id="help" TargetPage="/Views/HelpPage.xaml"/>
         <AppBarUtils:AppBarItemCommand Id="send" Command="{Binding SendCommand}"/>
 	</i:Interaction.Behaviors>
     
@@ -127,12 +129,12 @@
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
             <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding ReplMessages}" ItemTemplate="{StaticResource MessageItemTemplate}"/>
+                <ItemsControl ItemsSource="{Binding ReplMessages}" ItemTemplate="{StaticResource ReplMessageTemplate}"/>
             </ScrollViewer>
             <c4fc:ChatBubbleTextBox
                 Text="{Binding SourceCode, Mode=TwoWay}" Hint="type your code here"
                 ChatBubbleDirection="LowerRight" HorizontalAlignment="Right"
-                IsReadOnly="{Binding IsEvaluating}" c4fb:TextBinding.UpdateSourceOnChange="True"
+                IsReadOnly="{Binding IsExecutingCommand}" c4fb:TextBinding.UpdateSourceOnChange="True"
                 AcceptsReturn="True"
                 Width="370" Margin="12,0,12,12" Grid.Row="1"
                 FontSize="{StaticResource PhoneFontSizeNormal}" Padding="6"/>

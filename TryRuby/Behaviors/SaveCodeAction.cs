@@ -13,6 +13,7 @@ using System.Windows.Interactivity;
 using Microsoft.Phone.Controls;
 using TryRuby.Utils;
 using Coding4Fun.Toolkit.Controls;
+using TryRuby.Models;
 
 namespace TryRuby.Behaviors
 {
@@ -68,7 +69,7 @@ namespace TryRuby.Behaviors
                                 // the content of the existing file will be overwritten SILENTLY.
                                 // We might need a graceful way to inform the users of this fact
                                 // or to give them opportunity to make a decision.
-                                await StorageManager.Instance.SaveFileAsync("Code", fileName, Content);
+                                await CodeFileManager.Instance.SaveCodeFileAsync(fileName, Code);
 
                                 var toast = new ToastPrompt();
                                 toast.Message = "Code saved successfully.";
@@ -85,14 +86,14 @@ namespace TryRuby.Behaviors
             messageBox.Show();
 		}
 
-        public string Content
+        public string Code
         {
-            get { return (string)GetValue(ContentProperty); }
-            set { SetValue(ContentProperty, value); }
+            get { return (string)GetValue(CodeProperty); }
+            set { SetValue(CodeProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Content.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ContentProperty =
-            DependencyProperty.Register("Content", typeof(string), typeof(SaveCodeAction), new PropertyMetadata(null));
+        // Using a DependencyProperty as the backing store for Code.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CodeProperty =
+            DependencyProperty.Register("Code", typeof(string), typeof(SaveCodeAction), new PropertyMetadata(null));
 	}
 }

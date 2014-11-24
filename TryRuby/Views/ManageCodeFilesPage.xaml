@@ -1,0 +1,86 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:behaviors="clr-namespace:TryRuby.Behaviors"
+    x:Class="TryRuby.Views.ManageCodeFilesPage"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    shell:SystemTray.IsVisible="True">
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="True" IsVisible="{Binding IsExecutingCommand}"/>
+    </shell:SystemTray.ProgressIndicator>
+
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="CodeFileTemplate">
+        	<Grid Margin="0,0,0,12">
+        		<Grid.RowDefinitions>
+        			<RowDefinition/>
+        			<RowDefinition Height="Auto"/>
+        			<RowDefinition Height="Auto"/>
+        		</Grid.RowDefinitions>
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="Auto"/>
+        			<ColumnDefinition/>
+        		</Grid.ColumnDefinitions>
+                <toolkit:ContextMenuService.ContextMenu>
+                    <toolkit:ContextMenu>
+                        <toolkit:MenuItem Header="evaluate">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <behaviors:EvaluateCodeAction FileName="{Binding FileName}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </toolkit:MenuItem>
+                        <toolkit:MenuItem Header="delete">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <behaviors:DeleteCodeAction FileName="{Binding FileName}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </toolkit:MenuItem>
+                    </toolkit:ContextMenu>
+                </toolkit:ContextMenuService.ContextMenu>
+                <Rectangle Fill="{StaticResource PhoneAccentBrush}" Grid.RowSpan="3" Width="10" Margin="0,0,12,0"/>
+        		<TextBlock TextWrapping="Wrap" Text="{Binding FileName}" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Grid.Column="1"/>
+        		<TextBlock TextWrapping="Wrap" Text="{Binding DateModified, StringFormat=G}" Grid.Row="1" Grid.Column="1" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}"/>
+        		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Size, StringFormat=\{0\} bytes}" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}"/>
+        	</Grid>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+
+	<i:Interaction.Triggers>
+		<i:EventTrigger>
+			<i:InvokeCommandAction Command="{Binding InitializeCommand}"/>
+		</i:EventTrigger>
+	</i:Interaction.Triggers>
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<!--TitlePanel contains the name of the application and page title-->
+		<StackPanel Grid.Row="0" Margin="12,17,0,28">
+			<TextBlock Text="TRY RUBY" Style="{StaticResource PhoneTextNormalStyle}"/>
+			<TextBlock Text="code" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+		</StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+			<phone:LongListSelector ItemTemplate="{StaticResource CodeFileTemplate}" ItemsSource="{Binding CodeFiles}" Margin="{StaticResource PhoneHorizontalMargin}"/>
+		</Grid>
+	</Grid>
+
+</phone:PhoneApplicationPage>
