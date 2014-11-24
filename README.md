@@ -11,8 +11,8 @@ Features
 This app is still in BETA stage, and only for study and experiment at this point of time. Here's a list of what I plan to implement:
 
 1. Save user-defined code [done]
-2. List saved code
-3. Evaluate and delete saved code
+2. List saved code [done]
+3. Evaluate and delete saved code [done]
 4. View and edit saved code
 5. Learning mode
 
