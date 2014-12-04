@@ -23,6 +23,11 @@
     <phone:PhoneApplicationPage.Resources>
         <DataTemplate x:Key="CodeFileTemplate">
         	<Grid Margin="0,0,0,12">
+        		<i:Interaction.Triggers>
+        			<i:EventTrigger EventName="Tap">
+                        <behaviors:EditCodeAction FileName="{Binding FileName}"/>
+        			</i:EventTrigger>
+        		</i:Interaction.Triggers>
         		<Grid.RowDefinitions>
         			<RowDefinition/>
         			<RowDefinition Height="Auto"/>

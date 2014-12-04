@@ -37,19 +37,25 @@ namespace TryRuby.Models
             }
         }
 
-        public async Task SaveCodeFileAsync(string fileName, string code)
+        // The addToList parameter will be set to false when editing an existing code file.
+        public async Task SaveCodeFileAsync(string fileName, string code, bool addToList = true)
         {
             var file = await FileUtil.WriteAllTextAsync(FolderName, fileName, code);
 
-            if (_hasInitialized)
+            if (_hasInitialized && addToList)
             {
                 CodeFiles.Add(await file.ToCodeFile());
             }
         }
 
+        public async Task<string> LoadCodeFileAsync(string fileName)
+        {
+            return await FileUtil.ReadAllTextAsync(FolderName, fileName);
+        }
+
         public async Task EvaluateCodeFileAsync(string fileName)
         {
-            var code = await FileUtil.ReadAllTextAsync(FolderName, fileName);
+            var code = await LoadCodeFileAsync(fileName);
 
             if (!String.IsNullOrWhiteSpace(code))
             {
