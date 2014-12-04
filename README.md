@@ -13,7 +13,7 @@ This app is still in BETA stage, and only for study and experiment at this point
 1. Save user-defined code [done]
 2. List saved code [done]
 3. Evaluate and delete saved code [done]
-4. View and edit saved code
+4. View and edit saved code [done]
 5. Learning mode
 
 **1.5 BETA (2014-11-13):**
