@@ -44,6 +44,9 @@ namespace TryRuby.Behaviors
                 Padding = new Thickness(6),
             };
 
+            // Open keyboard for input by making the TextBox focused.
+            textBox.Loaded += (s, e) => textBox.Focus();
+
             var messageBox = new CustomMessageBox
             {
                 Caption = "Save Code",
