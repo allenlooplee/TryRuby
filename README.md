@@ -10,11 +10,19 @@ Features
 
 This app is still in BETA stage, and only for study and experiment at this point of time. Here's a list of what I plan to implement:
 
+1. New code directly in editor
+2. Rename saved code
+3. Sync saved code to cloud storage
+4. Redirect/redefine puts and gets
+5. Learning mode
+6. Tips via Live Tile
+
+**2.0 BETA (2014-12-12):**
+
 1. Save user-defined code [done]
 2. List saved code [done]
 3. Evaluate and delete saved code [done]
 4. View and edit saved code [done]
-5. Learning mode
 
 **1.5 BETA (2014-11-13):**
 
