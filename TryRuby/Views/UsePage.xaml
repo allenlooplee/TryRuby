@@ -48,7 +48,7 @@
                                 Text="Hi, I'm Ruby. Let me help you program right inside your phone, of course, in Ruby."
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-11-7" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-11-7" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <!--Q1-->
@@ -67,7 +67,7 @@
                                 Text="How can I evaluate Ruby code?"
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-11-7" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-11-7" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <c4fc:ChatBubble
@@ -85,7 +85,7 @@
                                 Text="Type it inside the text box and tap the send button. The evaluated result will show immediately."
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-11-7" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-11-7" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <!--Q2-->
@@ -104,7 +104,7 @@
                                 Text="Can I do math?"
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-11-7" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-11-7" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <c4fc:ChatBubble
@@ -122,7 +122,7 @@
                                 Text="Yes, this is actually an advanced calculator. Go try a math expression like (3 + 2) * 5. For advanced math operations, try methods of Math module like Math.sqrt."
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-11-7" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-11-7" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <!--Q3-->
@@ -141,7 +141,7 @@
                                 Text="Can I copy previously evaluated code/result?"
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-11-13" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-11-13" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <c4fc:ChatBubble
@@ -159,7 +159,7 @@
                                 Text="Yes, tap and hold any code/result to reveal the context menu, then tap the copy menu item."
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-11-13" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-11-13" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <!--Q4-->
@@ -178,7 +178,7 @@
                                 Text="Can I define methods and classes?"
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-11-13" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-11-13" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <c4fc:ChatBubble
@@ -196,7 +196,7 @@
                                 Text="Sure, methods and classes help you better organize your code. Go ahead and have a try."
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-11-13" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-11-13" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <!--Q5-->
@@ -215,7 +215,7 @@
                                 Text="Can I save code for later use?"
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-12-12" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-12-12" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <c4fc:ChatBubble
@@ -233,7 +233,7 @@
                                 Text="Indeed, tap and hold any code to reveal the context menu, then tap the save menu item."
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-12-12" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-12-12" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <!--Q6-->
@@ -252,7 +252,7 @@
                                 Text="Can I view/edit/delete saved code?"
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-12-12" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-12-12" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <c4fc:ChatBubble
@@ -270,7 +270,7 @@
                                 Text="Yes, you can manipulate your saved code in code manager which can be openned via 'manage code' in the app bar menu."
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
-                            <TextBlock Text="2014-12-12" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-12-12" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                     <!--N1-->
@@ -290,7 +290,7 @@
                                 TextWrapping="Wrap" Foreground="White"
                                 FontSize="{StaticResource PhoneFontSizeNormal}"/>
                             <!--Please update the blew date to the lastest release date.-->
-                            <TextBlock Text="2014-12-12" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+                            <TextBlock Text="2014-12-12" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
                         </Grid>
                     </c4fc:ChatBubble>
                 </ItemsControl>

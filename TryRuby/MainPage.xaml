@@ -64,7 +64,7 @@
         					<RowDefinition Height="Auto"/>
         				</Grid.RowDefinitions>
                         <TextBlock Text="{Binding Text}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="White"/>
-        				<TextBlock Text="{Binding Timestamp, StringFormat=t}" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="White" Grid.Row="1" Margin="0,6,0,0"/>
+        				<TextBlock Text="{Binding Timestamp, StringFormat=t}" TextAlignment="Right" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}" Grid.Row="1" Margin="0,6,0,0"/>
         			</Grid>
         		</c4fc:ChatBubble>
         	</Grid>
