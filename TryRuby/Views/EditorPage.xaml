@@ -48,7 +48,7 @@
         </StackPanel>-->
         
         <Grid Background="{StaticResource PhoneInactiveBrush}">
-            <TextBlock Text="circle.rb" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Foreground="{StaticResource PhoneForegroundBrush}" Margin="12,0,12,6"/>
+            <TextBlock Text="{Binding FileName}" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Foreground="{StaticResource PhoneForegroundBrush}" Margin="12,0,12,6"/>
         </Grid>
 
         <!--ContentPanel - place additional content here-->
