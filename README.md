@@ -12,10 +12,11 @@ This app is still in BETA stage, and only for study and experiment at this point
 
 1. New code directly in editor
 2. Rename saved code
-3. Sync saved code to cloud storage
-4. Redirect/redefine puts and gets
-5. Learning mode
-6. Tips via Live Tile
+3. Manage code by category
+4. Sync saved code to cloud storage
+5. Redirect/redefine puts and gets
+6. Learning mode
+7. Tips via greeting message and Live Tile
 
 **2.0 BETA (2014-12-12):**
 
